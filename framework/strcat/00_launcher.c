@@ -37,11 +37,13 @@ static t_test	ft_get_test(int i)
 	}
 	return (test_funct[(int)i]);
 }	
-void	strcat_launcher(void)
+void	strcat_launcher(t_test_results *test_res)
 {
 	pid_t p[MAX_TESTS], w;
 	t_test test;
 	int i = 0;
+	int ps = 0;
+	int f = 0;
 	char *str;
 	int status;
 	int status_res[MAX_TESTS];
@@ -78,9 +80,15 @@ void	strcat_launcher(void)
 	while (i < MAX_TESTS)
 	{
 		if (status_res[i] == EXIT_SUCCESS)
+		{
+			test_res->passed++;
 			ft_printf("%-25s"GREEN"[%s]"RESET"\n", tests[i], names[status_res[i]]);
+		}
 		else
+		{
+			test_res->failed++;
 			ft_printf("%-25s"RED"[%s]"RESET"\n", tests[i], names[status_res[i]]);
+		}
 		i++;
 	}
 }
