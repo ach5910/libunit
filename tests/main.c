@@ -21,6 +21,7 @@ int main(void)
 	bzero(test_res, sizeof(t_test_results));
 	strlen_launcher(test_res);
 	isnum_launcher(test_res);
+	strcat_launcher(test_res);
 		
 	if (test_res->failed == 0)
 		ft_printf("\nTests Passed: "GREEN"%d/%d"RESET"\n", 

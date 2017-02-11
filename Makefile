@@ -53,10 +53,10 @@ STRCAT_BASE =	00_launcher.c \
 				06_null_1_test.c \
 				07_null_2_test.c \
 
-SRC = $(addprefix framework/strlen/, $(STRLEN_BASE))
-SRC += $(addprefix framework/isnumber/, $(ISNUM_BASE))
-SRC += $(addprefix framework/strcat/, $(STRCAT_BASE))
-SRC += $(addprefix framework/, $(SRC_BASE))
+SRC = $(addprefix tests/strlen/, $(STRLEN_BASE))
+SRC += $(addprefix tests/isnumber/, $(ISNUM_BASE))
+SRC += $(addprefix tests/strcat/, $(STRCAT_BASE))
+SRC += $(addprefix tests/, $(SRC_BASE))
 
 OBJ = $(addprefix obj/strlen/, $(STRLEN_BASE:.c=.o))
 OBJ += $(addprefix obj/strcat/, $(STRCAT_BASE:.c=.o))
@@ -76,16 +76,16 @@ obj:
 	mkdir -p $@/isnumber
 	mkdir -p $@/strcat
 
-obj/isnumber/%.o: framework/isnumber/%.c
+obj/isnumber/%.o: tests/isnumber/%.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
-obj/strlen/%.o: framework/strlen/%.c
+obj/strlen/%.o: tests/strlen/%.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
-obj/strcat/%.o: framework/strcat/%.c
+obj/strcat/%.o: tests/strcat/%.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
-obj/%.o: framework/%.c
+obj/%.o: tests/%.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME): $(OBJ)

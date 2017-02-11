@@ -17,13 +17,22 @@
 # include <signal.h>
 # include <libft.h>
 
+typedef void	(*t_test)(void);
 typedef struct	s_test_results
 {
 	int	passed;
 	int failed;
 }				t_test_results;
 
-typedef void	(*t_test)(void);
+typedef struct			s_test_list
+{
+	t_test				test_fun;
+	pid_t				pid;
+	char				*status;
+	char				*name;
+	struct s_test_list	*next;
+}						t_test_list;
+
 int main(void);
 void	strlen_launcher(t_test_results *test_res);
 void	strlen_empty_test(void);
