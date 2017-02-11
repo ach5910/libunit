@@ -12,10 +12,11 @@
 
 #include "libunit.h"
 
-void	null_test(void)
+
+void	strlen_null_test(void)
 {
 	char *str = "";
-
+	
 	if (0 == ft_strlen(str))
 		exit(EXIT_SUCCESS);
 	exit(EXIT_FAILURE);

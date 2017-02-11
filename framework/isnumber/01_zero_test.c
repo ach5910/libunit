@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_null_test.c                                     :+:      :+:    :+:   */
+/*   01_zero_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahunt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/10 17:15:09 by ahunt             #+#    #+#             */
-/*   Updated: 2017/02/10 17:15:28 by ahunt            ###   ########.fr       */
+/*   Created: 2017/02/10 18:02:42 by ahunt             #+#    #+#             */
+/*   Updated: 2017/02/10 18:02:54 by ahunt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
 
-void	strlen_basic_test(void)
+void	isnum_zero_test(void)
 {
-	const char *src = "This is a Sting"; 
-
-	if (ft_strlen(src) == 15)
+	if (ft_isdigit('0'))
 		exit(EXIT_SUCCESS);
 	exit(EXIT_FAILURE);
 }

@@ -12,7 +12,7 @@
 
 #include "libunit.h"
 
-void	special_chars_test(void)
+void	strlen_special_chars_test(void)
 {
 	const char *src = "This \tis a\n S\"ti\'ng"; 
 

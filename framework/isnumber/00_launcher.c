@@ -5,20 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahunt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/10 15:0MAX_TESTS:59 by ahunt             #+#    #+#     */
-/*   Updated: 2017/02/10 15:04:21 by ahunt            ###   ########.fr       */
+/*   Created: 2017/02/10 17:56:26 by ahunt             #+#    #+#             */
+/*   Updated: 2017/02/10 17:56:43 by ahunt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#define MAX_TESTS 5
+
 #include "libunit.h"
+
+#define MAX_TESTS 5
 
 static void	init_funct_ptr(t_test *test_funct)
 {
-	test_funct[0] = &strlen_null_test;
-	test_funct[1] = &strlen_basic_test;
-	test_funct[2] = &strlen_long_test;
-	test_funct[3] = &strlen_uninitialized_test;
-	test_funct[4] = &strlen_special_chars_test;
+	test_funct[0] = &isnum_zero_test;
+	test_funct[1] = &isnum_dec_char_test;
+	test_funct[2] = &isnum_basic_test;;
+	test_funct[3] = &isnum_escape_char_test;
+	test_funct[4] = &isnum_dec_num_test;
 }
 
 static t_test	ft_get_test(int i)
@@ -33,7 +35,7 @@ static t_test	ft_get_test(int i)
 	}
 	return (test_funct[(int)i]);
 }	
-void	strlen_launcher(void)
+void	isnum_launcher(void)
 {
 	pid_t p[MAX_TESTS], w;
 	t_test test;
@@ -46,7 +48,7 @@ void	strlen_launcher(void)
 	names[256] = "KO";
 	names[11] = "SEGV";
 	names[10] = "BUSERROR";
-	char *tests[] = {"Null", "Basic", "Long", "Uninitialized", "Speacial Characters"};
+	char *tests[] = {"Zero", "Decimal-Character", "Basic", "Escape Chararcter", "Decimal-Digit"};
 
 	while (i < MAX_TESTS)
 	{
@@ -56,11 +58,9 @@ void	strlen_launcher(void)
 		{
 			test = ft_get_test(i);
 			test();
-		
 		}
 		i++;
 	}
-
 	i = 0;
 	while (i < MAX_TESTS)
 	{
@@ -71,7 +71,7 @@ void	strlen_launcher(void)
 		status_res[j] = status;
 		i++;
 	}
-	ft_printf("***STRLEN***\n");
+	ft_printf("\n***IS_NUMBER***\n");
 	i = 0;
 	while (i < MAX_TESTS)
 	{

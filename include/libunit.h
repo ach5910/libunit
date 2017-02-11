@@ -19,12 +19,18 @@
 
 typedef void	(*t_test)(void);
 int main(void);
-void strlen_launcher(void);
-void	null_test(void);
-void	basic_test(void);
-void	long_string_test(void);
-void	uninitialized_test(void);
-void	special_chars_test(void);
+void 	strlen_launcher(void);
+void	strlen_null_test(void);
+void	strlen_basic_test(void);
+void	strlen_long_test(void);
+void	strlen_uninitialized_test(void);
+void	strlen_special_chars_test(void);
+void	isnum_launcher(void);
+void	isnum_zero_test(void);
+void	isnum_dec_char_test(void);
+void	isnum_basic_test(void);
+void	isnum_escape_char_test(void);
+void	isnum_dec_num_test(void);
 
 
 #endif

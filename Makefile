@@ -31,16 +31,25 @@ RM = rm -rf
 SRC_BASE = 	main.c \
 
 STRLEN_BASE =	00_launcher.c \
-			01_null_test.c \
-			02_basic_test.c \
-			03_long_test.c \
-			04_uninitialized_test.c \
-			05_special_characters_test.c \
+				01_null_test.c \
+				02_basic_test.c \
+				03_long_test.c \
+				04_uninitialized_test.c \
+				05_special_characters_test.c \
+
+ISNUM_BASE = 	00_launcher.c \
+				01_zero_test.c \
+				02_dec_char_test.c \
+				03_basic_test.c \
+				04_escape_char_test.c \
+				05_dec_num_test.c \
 
 SRC = $(addprefix framework/strlen/, $(STRLEN_BASE))
+SRC += $(addprefix framework/isnumber/, $(ISNUM_BASE))
 SRC += $(addprefix framework/, $(SRC_BASE))
 
-OBJ = $(addprefix obj/, $(STRLEN_BASE:.c=.o))
+OBJ = $(addprefix obj/strlen/, $(STRLEN_BASE:.c=.o))
+OBJ += $(addprefix obj/isnumber/, $(ISNUM_BASE:.c=.o))
 OBJ += $(addprefix obj/, $(SRC_BASE:.c=.o))
 
 all: $(LIBFT) $(NAME)
@@ -52,8 +61,13 @@ $(OBJ): | obj
 
 obj:
 	mkdir -p $@
+	mkdir -p $@/strlen
+	mkdir -p $@/isnumber
 
-obj/%.o: framework/strlen/%.c
+obj/isnumber/%.o: framework/isnumber/%.c
+	$(CC) $(CFLAGS) -o $@ -c $<
+
+obj/strlen/%.o: framework/strlen/%.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 obj/%.o: framework/%.c

@@ -12,7 +12,7 @@
 
 #include "libunit.h"
 
-void	uninitialized_test(void)
+void	strlen_uninitialized_test(void)
 {
 	char *str;
 
