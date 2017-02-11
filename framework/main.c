@@ -18,6 +18,7 @@ int main(void)
 
 	strlen_launcher();
 	isnum_launcher();
+	strcat_launcher();
 
 	return (0);
 }

@@ -31,10 +31,10 @@ RM = rm -rf
 SRC_BASE = 	main.c \
 
 STRLEN_BASE =	00_launcher.c \
-				01_null_test.c \
+				01_empty_test.c \
 				02_basic_test.c \
 				03_long_test.c \
-				04_uninitialized_test.c \
+				04_null_test.c \
 				05_special_characters_test.c \
 
 ISNUM_BASE = 	00_launcher.c \
@@ -44,11 +44,22 @@ ISNUM_BASE = 	00_launcher.c \
 				04_escape_char_test.c \
 				05_dec_num_test.c \
 
+STRCAT_BASE =	00_launcher.c \
+				01_basic_test.c \
+				02_return_test.c \
+				03_overflow_test.c \
+				04_empty_1_test.c \
+				05_empty_2_test.c \
+				06_null_1_test.c \
+				07_null_2_test.c \
+
 SRC = $(addprefix framework/strlen/, $(STRLEN_BASE))
 SRC += $(addprefix framework/isnumber/, $(ISNUM_BASE))
+SRC += $(addprefix framework/strcat/, $(STRCAT_BASE))
 SRC += $(addprefix framework/, $(SRC_BASE))
 
 OBJ = $(addprefix obj/strlen/, $(STRLEN_BASE:.c=.o))
+OBJ += $(addprefix obj/strcat/, $(STRCAT_BASE:.c=.o))
 OBJ += $(addprefix obj/isnumber/, $(ISNUM_BASE:.c=.o))
 OBJ += $(addprefix obj/, $(SRC_BASE:.c=.o))
 
@@ -63,11 +74,15 @@ obj:
 	mkdir -p $@
 	mkdir -p $@/strlen
 	mkdir -p $@/isnumber
+	mkdir -p $@/strcat
 
 obj/isnumber/%.o: framework/isnumber/%.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 obj/strlen/%.o: framework/strlen/%.c
+	$(CC) $(CFLAGS) -o $@ -c $<
+
+obj/strcat/%.o: framework/strcat/%.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 obj/%.o: framework/%.c

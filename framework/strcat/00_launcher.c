@@ -5,20 +5,24 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahunt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/10 15:0MAX_TESTS:59 by ahunt             #+#    #+#     */
-/*   Updated: 2017/02/10 15:04:21 by ahunt            ###   ########.fr       */
+/*   Created: 2017/02/10 20:19:42 by ahunt             #+#    #+#             */
+/*   Updated: 2017/02/10 20:20:00 by ahunt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#define MAX_TESTS 5
+
 #include "libunit.h"
+
+#define MAX_TESTS 7
 
 static void	init_funct_ptr(t_test *test_funct)
 {
-	test_funct[0] = &strlen_empty_test;
-	test_funct[1] = &strlen_basic_test;
-	test_funct[2] = &strlen_long_test;
-	test_funct[3] = &strlen_null_test;
-	test_funct[4] = &strlen_special_chars_test;
+	test_funct[0] = &strcat_basic_test;
+	test_funct[1] = &strcat_return_test;
+	test_funct[2] = &strcat_overflow_test;
+	test_funct[3] = &strcat_empty_1_test;
+	test_funct[4] = &strcat_empty_2_test;
+	test_funct[5] = &strcat_null_1_test;
+	test_funct[6] = &strcat_null_2_test;
 }
 
 static t_test	ft_get_test(int i)
@@ -33,7 +37,7 @@ static t_test	ft_get_test(int i)
 	}
 	return (test_funct[(int)i]);
 }	
-void	strlen_launcher(void)
+void	strcat_launcher(void)
 {
 	pid_t p[MAX_TESTS], w;
 	t_test test;
@@ -46,7 +50,7 @@ void	strlen_launcher(void)
 	names[256] = "KO";
 	names[11] = "SEGV";
 	names[10] = "BUSERROR";
-	char *tests[] = {"Empty", "Basic", "Long", "Null", "Speacial Characters"};
+	char *tests[] = {"Basic", "Return", "Overflow", "Empty_1", "Empty_2", "Null_1", "Null_2"};
 
 	while (i < MAX_TESTS)
 	{
@@ -56,11 +60,9 @@ void	strlen_launcher(void)
 		{
 			test = ft_get_test(i);
 			test();
-		
 		}
 		i++;
 	}
-
 	i = 0;
 	while (i < MAX_TESTS)
 	{
@@ -71,7 +73,7 @@ void	strlen_launcher(void)
 		status_res[j] = status;
 		i++;
 	}
-	ft_printf("\n***STRLEN***\n");
+	ft_printf("\n***STRCAT***\n");
 	i = 0;
 	while (i < MAX_TESTS)
 	{

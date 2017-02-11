@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   01_null_test.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahunt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/14 16:57:24 by ahunt             #+#    #+#             */
-/*   Updated: 2016/09/28 05:08:22 by ahunt            ###   ########.fr       */
+/*   Created: 2017/02/10 17:15:09 by ahunt             #+#    #+#             */
+/*   Updated: 2017/02/10 17:15:28 by ahunt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libunit.h"
 
-size_t	ft_strlen(const char *str)
+
+void	strlen_empty_test(void)
 {
-	size_t length;
-
-	// if (!str && *str)
-	// 	return (0);
-	length = 0;
-	while (str[length])
-		length++;
-	return (length);
+	char *str = "";
+	
+	if (0 == ft_strlen(str))
+		exit(EXIT_SUCCESS);
+	exit(EXIT_FAILURE);
 }

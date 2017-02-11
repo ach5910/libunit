@@ -20,10 +20,10 @@
 typedef void	(*t_test)(void);
 int main(void);
 void 	strlen_launcher(void);
-void	strlen_null_test(void);
+void	strlen_empty_test(void);
 void	strlen_basic_test(void);
 void	strlen_long_test(void);
-void	strlen_uninitialized_test(void);
+void	strlen_null_test(void);
 void	strlen_special_chars_test(void);
 void	isnum_launcher(void);
 void	isnum_zero_test(void);
@@ -31,6 +31,15 @@ void	isnum_dec_char_test(void);
 void	isnum_basic_test(void);
 void	isnum_escape_char_test(void);
 void	isnum_dec_num_test(void);
+void	strcat_launcher(void);
+void	strcat_basic_test(void);
+void	strcat_return_test(void);
+void	strcat_overflow_test(void);
+void	strcat_empty_1_test(void);
+void	strcat_empty_2_test(void);
+void	strcat_null_1_test(void);
+void	strcat_null_2_test(void);
+
 
 
 #endif

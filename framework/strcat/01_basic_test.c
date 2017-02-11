@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_null_test.c                                     :+:      :+:    :+:   */
+/*   01_basic_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahunt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/10 17:15:09 by ahunt             #+#    #+#             */
-/*   Updated: 2017/02/10 17:15:28 by ahunt            ###   ########.fr       */
+/*   Created: 2017/02/10 20:26:25 by ahunt             #+#    #+#             */
+/*   Updated: 2017/02/10 20:26:38 by ahunt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
 
-void	strlen_uninitialized_test(void)
+void strcat_basic_test(void)
 {
-	char *str;
+	char buf[256] = "This is a String";
 
-	ft_strlen(str);
+	ft_strcat(buf, ", on drugs!");
+	if (ft_strequ(buf,"This is a String, on drugs!"))
+		exit(EXIT_SUCCESS);
 	exit(EXIT_FAILURE);
 }

@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   01_basic_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahunt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/07/14 16:57:24 by ahunt             #+#    #+#             */
-/*   Updated: 2016/09/28 05:08:22 by ahunt            ###   ########.fr       */
+/*   Created: 2017/02/10 20:26:25 by ahunt             #+#    #+#             */
+/*   Updated: 2017/02/10 20:26:38 by ahunt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libunit.h"
 
-size_t	ft_strlen(const char *str)
+void strcat_empty_1_test(void)
 {
-	size_t length;
+	char buf1[256] = "";
+	char buf2[256] = "This is a String";
+	char *ret;
 
-	// if (!str && *str)
-	// 	return (0);
-	length = 0;
-	while (str[length])
-		length++;
-	return (length);
+	ret = ft_strcat(buf1, buf2);
+	if (ft_strequ(ret ,buf2))
+		exit(EXIT_SUCCESS);
+	exit(EXIT_FAILURE);
 }

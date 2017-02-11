@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_null_test.c                                     :+:      :+:    :+:   */
+/*   01_basic_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahunt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/10 17:15:09 by ahunt             #+#    #+#             */
-/*   Updated: 2017/02/10 17:15:28 by ahunt            ###   ########.fr       */
+/*   Created: 2017/02/10 20:26:25 by ahunt             #+#    #+#             */
+/*   Updated: 2017/02/10 20:26:38 by ahunt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
 
-
-void	strlen_null_test(void)
+void strcat_null_2_test(void)
 {
-	char *str = "";
-	
-	if (0 == ft_strlen(str))
+	char buf1[16] = "This is a String";
+	char *buf2;
+	char *ret;
+
+	ret = ft_strcat(buf1, buf2);
+	if (ft_strequ(ret ,buf2))
 		exit(EXIT_SUCCESS);
 	exit(EXIT_FAILURE);
 }
