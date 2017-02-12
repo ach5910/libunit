@@ -14,7 +14,5 @@
 
 void	isnum_dec_char_test(void)
 {
-	if (ft_isdigit(94))
-		exit(EXIT_FAILURE);
-	exit(EXIT_SUCCESS);
+	assert_digit(94);
 }

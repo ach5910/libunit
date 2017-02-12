@@ -14,8 +14,6 @@
 
 void	isnum_dec_num_test(void)
 {
-	if (ft_isdigit(51))
-		exit(EXIT_SUCCESS);
-	exit(EXIT_FAILURE);
+	assert_digit(51);
 }
 

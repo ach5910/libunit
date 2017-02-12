@@ -10,20 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libunit.c"
+#include "libunit.h"
 
-void	run_tests(t_test_list *test)
+void	run_test(t_test_list **test)
 {
-	t_test *cur_test;
-	while (test)
+	t_test cur_test_func;
+	t_test_list *cur_test;
+	
+	cur_test = *test;
+	while (cur_test)
 	{
-		if ((test->pid = fork()) < 0)
+		if ((cur_test->pid = fork()) < 0)
 			exit(EXIT_FAILURE);
-		if (test->pid == 0)
+		if (cur_test->pid == 0)
 		{
-			cur_test = test->test_funct;
-			cur_test();
+			cur_test_func = cur_test->test_func;
+			cur_test_func();
 		}
-		test = test->next;
+		cur_test = cur_test->next;
 	}
 }

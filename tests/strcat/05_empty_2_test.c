@@ -19,7 +19,5 @@ void strcat_empty_2_test(void)
 	char *ret;
 
 	ret = ft_strcat(buf1, buf2);
-	if (ft_strequ(ret ,buf1))
-		exit(EXIT_SUCCESS);
-	exit(EXIT_FAILURE);
+	assert_str_eq(ret ,buf2);
 }

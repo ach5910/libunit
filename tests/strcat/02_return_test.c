@@ -18,7 +18,5 @@ void strcat_return_test(void)
 	char *ret;
 
 	ret = ft_strcat(buf, ", on drugs!");
-	if (ft_strequ(ret ,"This is a String, on drugs!"))
-		exit(EXIT_SUCCESS);
-	exit(EXIT_FAILURE);
+	assert_str_eq(ret ,"This is a String, on drugs!");
 }

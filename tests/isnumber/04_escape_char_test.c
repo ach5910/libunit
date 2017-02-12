@@ -14,7 +14,5 @@
 
 void	isnum_escape_char_test(void)
 {
-	if (ft_isdigit('\n'))
-		exit(EXIT_FAILURE);
-	exit(EXIT_SUCCESS);
+	assert_digit('\n');
 }

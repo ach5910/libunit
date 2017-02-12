@@ -17,7 +17,5 @@ void	strlen_empty_test(void)
 {
 	char *str = "";
 	
-	if (0 == ft_strlen(str))
-		exit(EXIT_SUCCESS);
-	exit(EXIT_FAILURE);
+	assert_int_eq(0, ft_strlen(str));
 }

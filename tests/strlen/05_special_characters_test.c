@@ -16,7 +16,5 @@ void	strlen_special_chars_test(void)
 {
 	const char *src = "This \tis a\n S\"ti\'ng"; 
 
-	if (ft_strlen(src) == 19)
-		exit(EXIT_SUCCESS);
-	exit(EXIT_FAILURE);
+	assert_int_eq(19, ft_strlen(src));
 }

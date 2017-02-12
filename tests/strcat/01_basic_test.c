@@ -17,7 +17,5 @@ void strcat_basic_test(void)
 	char buf[256] = "This is a String";
 
 	ft_strcat(buf, ", on drugs!");
-	if (ft_strequ(buf,"This is a String, on drugs!"))
-		exit(EXIT_SUCCESS);
-	exit(EXIT_FAILURE);
+	assert_str_eq(buf,"This is a String, on drugs!");
 }

@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   01_null_test.c                                     :+:      :+:    :+:   */
+/*   free_tests.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahunt <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/10 17:15:09 by ahunt             #+#    #+#             */
-/*   Updated: 2017/02/10 17:15:28 by ahunt            ###   ########.fr       */
+/*   Created: 2017/02/11 22:25:10 by ahunt             #+#    #+#             */
+/*   Updated: 2017/02/11 22:25:23 by ahunt            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libunit.h"
 
-void	strlen_null_test(void)
+void	free_tests(t_test_list **tests)
 {
-	char *str;
-
-	ft_strlen(str);
-	exit(EXIT_FAILURE);
+	if ((*tests)->next)
+		free_tests(&(*tests)->next);
+	ft_strdel(&(*tests)->name);
+	ft_memdel((void **)tests);
 }

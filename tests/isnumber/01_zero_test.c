@@ -14,7 +14,5 @@
 
 void	isnum_zero_test(void)
 {
-	if (ft_isdigit('0'))
-		exit(EXIT_SUCCESS);
-	exit(EXIT_FAILURE);
+	assert_digit('0');
 }

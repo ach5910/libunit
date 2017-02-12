@@ -14,13 +14,13 @@
 
 char *get_exit_status(int n)
 {
-	if (n == SIGSEGV)
+	if (n == 11)
 		return ("SEGV");
-	else if (n == SIGBUS)
+	else if (n == 10)
 		return ("BUSE");
-	else if (n == EXIT_SUCCESS)
+	else if (n == 0)
 		return ("OK");
-	else if (n == EXIT_FAILURE)
-		return ("KO")
-	return ("Unknown Error");
+	else if (n == 256)
+		return ("KO");
+	return (ft_itoa_base(n, 10, 1));
 }

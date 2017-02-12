@@ -14,7 +14,5 @@
 
 void	isnum_basic_test(void)
 {
-	if (ft_isdigit('5'))
-		exit(EXIT_SUCCESS);
-	exit(EXIT_FAILURE);
+	assert_digit('5');
 }

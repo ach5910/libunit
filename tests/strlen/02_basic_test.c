@@ -16,7 +16,5 @@ void	strlen_basic_test(void)
 {
 	const char *src = "This is a Sting"; 
 
-	if (ft_strlen(src) == 15)
-		exit(EXIT_SUCCESS);
-	exit(EXIT_FAILURE);
+	assert_int_eq(15, ft_strlen(src));
 }

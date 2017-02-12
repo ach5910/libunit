@@ -12,13 +12,20 @@
 
 #include "libunit.h"
 
+int	get_list_length(t_test_list *list)
+{
+	if (list->next == NULL)
+		return (1);
+	return (1 + get_list_length(list->next));
+}
+
 void	wait_for_process(t_test_list **test)
 {
-	int list_lenght;
+	int list_length;
 	int i;
 	int status;
 	pid_t w;
-	t_test_list tests;
+	t_test_list *tests;
 
 	tests = *test;
 
@@ -27,9 +34,9 @@ void	wait_for_process(t_test_list **test)
 	while (i < list_length)
 	{
 		w = wait(&status);
-		while (tests->pit != w)
+		while (tests->pid != w)
 			tests = tests->next;
-		tests->status = get_extit_status(status);
+		tests->status = get_exit_status(status);
 		tests = *test;
 		i++;
 	}

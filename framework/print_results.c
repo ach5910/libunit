@@ -12,19 +12,20 @@
 
 #include "libunit.h"
 
-void	print_results(t_test_list *test)
+void	print_results(t_test_list *test, t_test_results *test_res, char *str)
 {
-	ft_printf("\n***IS_NUMBER***\n");
+	ft_printf("\n"RESET BD_YELLOW UN_YELLOW"%s"RESET"\n", str);
 	while (test)
 	{
 		if (ft_strequ(test->status, "OK"))
 		{
-			test->passed++;
-			ft_printf("%-25s"GREEN"[%s]"RESET"\n", test->name, "OK");
+			test_res->passed++;
+			ft_printf(BD_YELLOW">>>"RESET BD_WHITE"%-25s"RESET GREEN"[%s]"RESET"\n", test->name, "OK");
 		}
 		else
 		{
-			ft_printf("%-25s"RED"[%s]"RESET"\n", test->name, get_exit_status(test->status));
+			test_res->failed++;
+			ft_printf(BD_YELLOW">>>"RESET BD_WHITE"%-25s"RESET RED"[%s]"RESET"\n", test->name, test->status);
 		}
 		test = test->next;
 	}

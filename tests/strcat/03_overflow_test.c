@@ -19,7 +19,6 @@ void strcat_overflow_test(void)
 	char *ret;
 
 	ret = ft_strcat(buf, ", on drugs! on drugs! on drugs! on drugs! on drug");
-	if (ft_strequ(ret ,"This is a String, on drugs! on drugs! on drugs! on drugs! on drug"))
-		exit(EXIT_SUCCESS);
-	exit(EXIT_FAILURE);
+	assert_str_eq(ret ,
+		"This is a String, on drugs! on drugs! on drugs! on drugs! on drug");
 }
